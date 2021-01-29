@@ -1,0 +1,45 @@
+.container [class*="col-"] {
+  background-color: pink;
+  text-align: center;
+}
+
+/* HO PROVATO A NON SCRIVERE IL TESTO NELL'HTML */
+
+* ::after , *::before {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50);
+}
+
+[class*="col-"] > [class*="col-"] {
+  background-color: #fb7373;
+}
+
+.col-1::after {
+  content: '1 col';
+}
+
+.col-2::after {
+  content: '2 col';
+}
+
+.col-6:not(.ultimo > *)::after {
+  content: '6 col';
+}
+
+.col-8::after {
+  content: '8 col';
+}
+
+.col-12::after {
+  content: '12 col';
+}
+
+.ultimo .col-6 {
+  padding: 5px;
+}
+
+[class*="col-"] > [class*="col-"]::before {
+  content: 'Nested \a';
+  white-space: pre;
+}
